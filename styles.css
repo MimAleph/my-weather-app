@@ -163,3 +163,18 @@ h1 {
 .low-temp {
   font-size: 14px;
 }
+
+.footer {
+  display: block;
+  margin: 0px auto;
+  color: #9e77ed;
+  padding: 48px;
+  text-align: center;
+}
+.github-link {
+  color: #9e77ed;
+  font-weight: 600;
+}
+.github-link:hover {
+  color: #6838c8;
+}
