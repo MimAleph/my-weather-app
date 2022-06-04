@@ -1,60 +1,58 @@
 body {
   background: #faf7ff;
-  margin-top: 64px;
 }
-.container {
-  max-width: 800px;
-}
-input.enter-city {
-  display: inline;
-  height: 56px;
-  background: #f4ebff;
-  border: 1px solid #ffffff;
+.container.weather-app {
+  border: 1px solid #c7b4ee;
   border-radius: 32px;
+  margin: 64px auto;
+  max-width: 960px;
   padding: 24px;
-  width: 100%;
 }
-div.col-10.search {
+.container.search {
   padding: 0px;
 }
 
-input.enter-city:focus-visible {
-  outline-color: #9e77ed;
-}
-
-input.search-button {
-  display: block;
-  box-sizing: border-box;
+.enter-city {
+  height: 56px;
+  background: #f4ebff;
+  border: 2px solid #ffffff;
+  border-radius: 32px;
+  width: 100%;
   padding: 8px 16px;
+}
+input:focus-visible {
+  outline-width: 2px;
+  outline-color: #6838c8;
+}
+.search-button {
   background: #9e77ed;
-  border: 1px solid #ffffff;
+  border: 2px solid #ffffff;
   border-radius: 32px;
   color: #fff;
   cursor: pointer;
+  height: 56px;
+  padding: 8px 16px;
   width: 100%;
+}
+.search-button:hover {
+  opacity: 80%;
 }
 button {
-  display: block;
   background-color: rgba(214, 187, 251, 100%);
   border-radius: 32px;
-  border: 1px solid #ffffff;
+  border: 2px solid #ffffff;
   color: #6838c8;
   cursor: pointer;
-  width: 100%;
+  height: 56px;
   padding: 8px 16px;
+  width: 100%;
 }
-input.search-button:hover {
-  opacity: 0.8;
+button:hover {
+  opacity: 80%;
 }
-input.search-button:active {
-  background-color: #6838c8;
-}
-input.search-button:focus-visible,
-:focus {
-  outline-color: #6838c8;
-}
-input.search-button:focus {
-  outline-color: #6838c8;
+
+button:focus {
+  outline-width: 0px;
 }
 .cityweather {
   display: flex;

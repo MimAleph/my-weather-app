@@ -20,21 +20,34 @@
     
   </head>
 <body>
-    <div class="container">
+   <div class="container weather-app">
+      <div class="weather-app-wrapper">
         <div class="weather-app">
-            <form id="search-form">
-      <div class="row">
-        <div class="col-8 search">
-         <div>
-            <input type="search" placeholder="Type city" class="enter-city" id="search-text-input" />
-            <div class="col-2">
-            <input type="submit" class="search-button" value="Search" w-100>
-            <button id="current-location-button" w-100><i class="fa-solid fa-location-dot"></i></button>
+          <form id="search-form" class="container search">
+            <div class="row">
+              <div class="col-8">
+                <input
+                  type="search"
+                  placeholder="Type a city..."
+                  class="enter-city"
+                  id="search-text-input"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-2">
+                <input
+                type="submit"
+                value="Search"
+                class="search-button"
+                />
+              </div>
+              <div class="col-2">
+              <button id="current-location-button">
+              <i class="fa-solid fa-location-dot"></i> My city
+            </button>
+            </div>
+            </div>
           </form>
-          </div> 
-        </div>
-      </div>
-    </div>
     <div class="container">
       <div class="row">
         <div class="col-10 cityweather" style="border: 2px solid rgb(255, 255, 255)">
@@ -43,7 +56,7 @@
               <span><i class="fa-solid fa-location-dot"></i></span>
               <span id="city">New York</span>
             </h4>
-            <div class="date"><span id="weekDay">Today</span> <span id=month>Month</span> <span id=dateOfDay>1</span><br /><span id=hour>00</span>:<span id= minute>00</span></div>
+            <div class="date" id="date-info"></div>
             <br />
             <div >Humidity: <span id="humidity">0</span>%</div>
             <div >Wind: <span id="wind">0</span> km/h</div>

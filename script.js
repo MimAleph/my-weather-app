@@ -1,12 +1,20 @@
-let now = new Date();
-let date = now.getDate();
-let currentDate = document.querySelector("#dateOfDay");
-currentDate.innerHTML = date;
-let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-let day = days[now.getDay()];
-let currentDay = document.querySelector("#weekDay");
-currentDay.innerHTML = day;
-
+let dateElement = document.querySelector("#date-info");
+let currentTime = new Date();
+let hours = currentTime.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
+let minutes = currentTime.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+let date = currentTime.getDate();
+if (date < 10) {
+  date = `0${date}`;
+}
+let day = currentTime.getDay();
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let month = currentTime.getMonth();
 let months = [
   "January",
   "February",
@@ -21,16 +29,7 @@ let months = [
   "November",
   "December",
 ];
-let month = months[now.getMonth()];
-let currentMonth = document.querySelector("#month");
-currentMonth.innerHTML = month;
-
-let hour = now.getHours();
-let currentHour = document.querySelector("#hour");
-currentHour.innerHTML = hour;
-let minutes = now.getMinutes();
-let currentMinute = document.querySelector("#minute");
-currentMinute.innerHTML = minutes;
+dateElement.innerHTML = `${days[day]}, ${months[month]} ${date} <br />${hours}:${minutes}`;
 
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
@@ -67,19 +66,20 @@ function findCurrentLocation(event) {
 
 function showFahrenheit(event) {
   event.preventDefault();
-  let fTemp = document.querySelector("h1");
-  fTemp.innerHTML = Math.round(16 * 1.8 + 32);
+  let fTemp = document.querySelector("#temperature");
+  fTemp.innerHTML = Math.round(h1 * 1.8 + 32);
 }
 let currentfTemp = document.querySelector("#fahrenheit-link");
 currentfTemp.addEventListener("click", showFahrenheit);
 
 function showCelsius(event) {
   event.preventDefault();
-  let cTemp = document.querySelector("h1");
-  cTemp.innerHTML = Math.round((61 - 32) / 1.8);
+  let cTemp = document.querySelector("#temperature");
+  cTemp.innerHTML = Math.round((h1 - 32) / 1.8);
 }
 
 let currentcTemp = document.querySelector("#celsiuse-link");
 currentcTemp.addEventListener("click", showCelsius);
+
 let currentButtonLocation = document.querySelector("#current-location-button");
 currentButtonLocation.addEventListener("click", findCurrentLocation);
