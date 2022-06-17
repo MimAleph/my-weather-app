@@ -54,6 +54,10 @@ button:hover {
 button:focus {
   outline-width: 0px;
 }
+div.tempUnits {
+  display: flex;
+  align-items: center;
+}
 .cityweather {
   display: flex;
   color: rgba(105, 65, 198, 100%);
@@ -101,6 +105,7 @@ h4 {
 h1 {
   font-size: 96px;
   font-weight: 900px;
+  padding: 24px;
 }
 .weather-status {
   text-align: center;
@@ -109,6 +114,7 @@ h1 {
   font-size: 20px;
   font-weight: 500;
   line-height: 16px;
+  padding-top: 8px;
 }
 
 .weather-icon {

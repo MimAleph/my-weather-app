@@ -30,7 +30,6 @@ let months = [
   "December",
 ];
 dateElement.innerHTML = `${days[day]}, ${months[month]} ${date} <br />${hours}:${minutes}`;
-
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -42,6 +41,9 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#weather-status").innerHTML =
     response.data.weather[0].main;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute("src", `image/${response.data.weather[0].icon}.svg`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function showCity(event) {
