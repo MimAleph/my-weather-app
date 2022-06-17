@@ -31,10 +31,10 @@ let months = [
 ];
 dateElement.innerHTML = `${days[day]}, ${months[month]} ${date} <br />${hours}:${minutes}`;
 function displayWeatherCondition(response) {
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
@@ -66,22 +66,24 @@ function findCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+let currentButtonLocation = document.querySelector("#current-location-button");
+currentButtonLocation.addEventListener("click", findCurrentLocation);
+
 function showFahrenheit(event) {
   event.preventDefault();
-  let fTemp = document.querySelector("#temperature");
-  fTemp.innerHTML = Math.round(h1 * 1.8 + 32);
+  let fTemp = Math.round(celsiusTemperature * 9) / 5 + 32;
+  let currentfTemp = document.querySelector("#temperature");
+  currentfTemp.innerHTML = Math.round(fTemp);
 }
 let currentfTemp = document.querySelector("#fahrenheit-link");
 currentfTemp.addEventListener("click", showFahrenheit);
 
 function showCelsius(event) {
   event.preventDefault();
-  let cTemp = document.querySelector("#temperature");
-  cTemp.innerHTML = Math.round((h1 - 32) / 1.8);
+  let currentcTemp = document.querySelector("#temperature");
+  currentcTemp.innerHTML = Math.round(celsiusTemperature);
 }
 
 let currentcTemp = document.querySelector("#celsiuse-link");
 currentcTemp.addEventListener("click", showCelsius);
-
-let currentButtonLocation = document.querySelector("#current-location-button");
-currentButtonLocation.addEventListener("click", findCurrentLocation);
+let celsiusTemperature = null;

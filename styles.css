@@ -182,3 +182,10 @@ h1 {
 .github-link:hover {
   color: #6838c8;
 }
+.tempUnits .active {
+  color: #6838c8;
+  cursor: default;
+}
+.tempUnits .active:hover {
+  text-decoration: none;
+}
