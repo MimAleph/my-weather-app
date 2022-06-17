@@ -80,6 +80,7 @@ currentfTemp.addEventListener("click", showFahrenheit);
 
 function showCelsius(event) {
   event.preventDefault();
+
   let currentcTemp = document.querySelector("#temperature");
   currentcTemp.innerHTML = Math.round(celsiusTemperature);
 }
