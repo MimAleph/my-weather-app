@@ -62,11 +62,11 @@ function displayForecast(response) {
         
     <br />
     <div>
-       <span><i class="fa-regular fa-sun"></i></span>
+       <span><i class="fa-solid fa-angle-up"></i></span>
     <span>${Math.round(forecastDay.temp.max)}°</span>
 </div>
 <div>
-    <span><i class="fa-regular fa-snowflake"></i></span>
+    <span><i class="fa-solid fa-angle-down"></i></span>
     <span class="low-temp">${Math.round(forecastDay.temp.min)}°</span>
 </div>
 </div>
