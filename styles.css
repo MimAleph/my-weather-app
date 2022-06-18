@@ -84,7 +84,7 @@ div.tempUnits {
 h4 {
   font-size: 24px;
   font-weight: 700;
-  width: 144px;
+  width: 248px;
   margin: 0px;
 }
 .date {
@@ -112,10 +112,10 @@ h1 {
   text-align: center;
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 16px;
-  padding-top: 8px;
+  padding-top: 4px;
 }
 
 .weather-icon {
@@ -153,15 +153,19 @@ h1 {
 .footer {
   display: block;
   margin: 0px auto;
-  color: #9e77ed;
+  color: #c7b4ee;
   padding: 48px;
   text-align: center;
 }
-.github-link {
+a.github-link,
+a.coder,
+a.netlify-link {
   color: #9e77ed;
   font-weight: 600;
 }
-.github-link:hover {
+.github-link,
+.coder,
+.netlify-link:hover {
   color: #6838c8;
 }
 .tempUnits .active {

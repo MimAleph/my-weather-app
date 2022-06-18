@@ -30,41 +30,58 @@ let months = [
   "December",
 ];
 dateElement.innerHTML = `${days[day]}, ${months[month]} ${date} <br />${hours}:${minutes}`;
-function displayForecast() {
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+
   let forecastHTML = `<div class="row weather-forecast">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
        <div class="col-forecast" style="border: 2px solid rgb(255, 255, 255)">
             <div>
                  <img  
-          src="image/03d.svg"
+          src="image/${forecastDay.weather[0].icon}.svg"
           alt="less clouds"
           height="40"
           width="40" />
             </div>
-            <div class="days">${day}</div>
-        <div>
-        2 Apr
-    </div>
+            <div class="days">${formatDay(forecastDay.dt)}</div>
+        
     <br />
     <div>
        <span><i class="fa-regular fa-sun"></i></span>
-    <span>23°</span>
+    <span>${Math.round(forecastDay.temp.max)}°</span>
 </div>
 <div>
-    <span><i class="fa-regular fa-moon"></i></span>
-    <span class="low-temp">8°</span>
+    <span><i class="fa-regular fa-snowflake"></i></span>
+    <span class="low-temp">${Math.round(forecastDay.temp.min)}°</span>
 </div>
 </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "ae9cc35716eff0ddc16a6f4a0947e685";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 function displayWeatherCondition(response) {
   celsiusTemperature = response.data.main.temp;
@@ -75,11 +92,17 @@ function displayWeatherCondition(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#weather-status").innerHTML =
-    response.data.weather[0].main;
+  document.querySelector(
+    "#weather-status"
+  ).innerHTML = `${response.data.weather[0].description}!`;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src", `image/${response.data.weather[0].icon}.svg`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  let iconStatus = document.querySelector("#icon-status");
+  iconStatus.setAttribute("src", `image/${response.data.weather[0].icon}.svg`);
+  iconStatus.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 
 function showCity(city) {
@@ -127,5 +150,5 @@ function showCelsius(event) {
 let currentcTemp = document.querySelector("#celsiuse-link");
 currentcTemp.addEventListener("click", showCelsius);
 let celsiusTemperature = null;
-displayForecast();
+
 showCity("New York");
