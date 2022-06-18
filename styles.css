@@ -126,14 +126,14 @@ h1 {
   top: 29px;
 }
 
-.weather-forecast.row {
+.row.weather-forecast {
   justify-content: space-between;
   display: flex;
   flex-wrap: nowrap;
   color: #9e77ed;
   text-align: center;
+  margin: 0px;
 }
-
 .col-forecast {
   width: 128px;
   border-width: 2px;

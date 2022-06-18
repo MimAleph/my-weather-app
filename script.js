@@ -30,6 +30,42 @@ let months = [
   "December",
 ];
 dateElement.innerHTML = `${days[day]}, ${months[month]} ${date} <br />${hours}:${minutes}`;
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  let forecastHTML = `<div class="row weather-forecast">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+       <div class="col-forecast" style="border: 2px solid rgb(255, 255, 255)">
+            <div>
+                 <img  
+          src="image/03d.svg"
+          alt="less clouds"
+          height="40"
+          width="40" />
+            </div>
+            <div class="days">${day}</div>
+        <div>
+        2 Apr
+    </div>
+    <br />
+    <div>
+       <span><i class="fa-regular fa-sun"></i></span>
+    <span>23°</span>
+</div>
+<div>
+    <span><i class="fa-regular fa-moon"></i></span>
+    <span class="low-temp">8°</span>
+</div>
+</div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 function displayWeatherCondition(response) {
   celsiusTemperature = response.data.main.temp;
   document.querySelector("#city").innerHTML = response.data.name;
@@ -46,15 +82,19 @@ function displayWeatherCondition(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-function showCity(event) {
-  event.preventDefault();
+function showCity(city) {
   let apiKey = `ae9cc35716eff0ddc16a6f4a0947e685`;
-  let currentCity = document.querySelector("#search-text-input").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#search-text-input");
+  showCity(cityInputElement.value);
+}
 let action = document.querySelector("#search-form");
-action.addEventListener("submit", showCity);
+action.addEventListener("submit", handleSubmit);
 
 function searchLocation(position) {
   let apiKey = `ae9cc35716eff0ddc16a6f4a0947e685`;
@@ -77,7 +117,6 @@ function showFahrenheit(event) {
 }
 let currentfTemp = document.querySelector("#fahrenheit-link");
 currentfTemp.addEventListener("click", showFahrenheit);
-
 function showCelsius(event) {
   event.preventDefault();
 
@@ -88,3 +127,5 @@ function showCelsius(event) {
 let currentcTemp = document.querySelector("#celsiuse-link");
 currentcTemp.addEventListener("click", showCelsius);
 let celsiusTemperature = null;
+displayForecast();
+showCity("New York");

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weaather app</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
@@ -54,11 +54,11 @@
           <span>
             <h4 class="weather-detail">
               <span><i class="fa-solid fa-location-dot"></i></span>
-              <span id="city">City</span>
+              <span id="city"></span>
             </h4>
             <div class="date" id="date-info"></div>
             <br />
-            <div >Humidity: <span id="humidity">0</span>%</div>
+            <div >Humidity: <span id="humidity"></span>%</div>
             <div >Wind: <span id="wind">0</span> km/h</div>
           </span>
           <img
@@ -82,118 +82,7 @@
       </div>
       </div>
     </div>
-   <div class="container forecast">
-     <div class="weather-forecast row">
-     
-        <div class="col-forecast" style="border: 2px solid rgb(255, 255, 255)">
-            <div>
-                 <img  
-          src="image/03d.svg"
-          alt="less clouds"
-          height="40"
-          width="40" />
-            </div>
-            <div class="days">Mon</div>
-        <div>
-        2 Apr
-    </div>
-    <br />
-    <div>
-       <span><i class="fa-regular fa-sun"></i></span>
-    <span>23°</span>
-</div>
-<div>
-    <span><i class="fa-regular fa-moon"></i></span>
-    <span class="low-temp">8°</span>
-</div>
-</div>
-        <div class="col-forecast" style="border: 2px solid rgb(255, 255, 255)"><div>
-                 <img  
-          src="image/01d.svg"
-          alt="Sunny"
-          height="40"
-          width="40" />
-            </div>
-            <div class="days">Tue</div>
-        <div>
-        3 Apr
-    </div>
-    <br />
-    <div>
-       <span><i class="fa-regular fa-sun"></i></span>
-    <span>27°</span>
-</div>
-<div>
-    <span><i class="fa-regular fa-moon"></i></span>
-    <span class="low-temp">12°</span>
-</div>
-</div>
-        <div class="col-forecast" style="border: 2px solid rgb(255, 255, 255)"><div>
-                 <img  
-          src="image/02d.svg"
-          alt="Cloudy"
-          height="40"
-          width="40" />
-            </div>
-            <div class="days">Wed</div>
-        <div>
-        4 Apr
-    </div>
-    <br />
-    <div>
-       <span><i class="fa-regular fa-sun"></i></span>
-    <span>21°</span>
-</div>
-<div>
-    <span><i class="fa-regular fa-moon"></i></span>
-    <span class="low-temp">5°</span>
-</div>
-</div>
-        <div class="col-forecast" style="border: 2px solid rgb(255, 255, 255)"><div>
-                 <img  
-          src="image/10d.svg"
-          alt="little Rain"
-          height="40"
-          width="40" />
-            </div>
-            <div class="days">Thu</div>
-        <div>
-        5 Apr
-    </div>
-    <br />
-    <div>
-       <span><i class="fa-regular fa-sun"></i></span>
-    <span>15°</span>
-</div>
-<div>
-    <span><i class="fa-regular fa-moon"></i></span>
-    <span class="low-temp">-1°</span>
-</div>
-</div>
-        <div class="col-forecast" style="border: 2px solid rgb(255, 255, 255)"><div>
-                 <img  
-          src="image/50d.svg"
-          alt="Rainy"
-          height="40"
-          width="40" />
-            </div>
-            <div class="days">Fri</div>
-        <div>
-        6 Apr
-    </div>
-    <br />
-    <div>
-       <span><i class="fa-regular fa-sun"></i></span>
-    <span>10°</span>
-</div>
-<div>
-    <span><i class="fa-regular fa-moon"></i></span>
-    <span class="low-temp">3°</span>
-</div>
-</div>
-
-</div>
-</div>
+    <div class="weather-forecast" id="forecast"></div>
 </div>
 <div class="footer" ><a class="github-link" href="https://github.com/MimAleph/my-weather-app/">Open-source code</a> <span class="coder">, by Maryam Aleph</span></div>
 </div>
