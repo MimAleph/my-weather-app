@@ -107,6 +107,7 @@ h1 {
   font-weight: 900px;
   padding: 24px;
 }
+
 .weather-status {
   text-align: center;
   writing-mode: vertical-rl;
@@ -125,40 +126,21 @@ h1 {
   top: 29px;
 }
 
-.mon-day {
-  justify-content: center;
-  height: 224px;
-  width: 104px;
-  margin-left: 0px;
-  padding: 4px;
-  margin-right: 31px;
-  border-radius: 100px;
-  background-color: #f4ebff;
+.weather-forecast.row {
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: nowrap;
   color: #9e77ed;
-  text-align: center;
-  padding: 24px 4px;
-}
-.tue-day,
-.wed-day,
-.thu-day {
-  color: #9e77ed;
-  background-color: #f4ebff;
-  border-radius: 100px;
-  display: inline;
-  padding: 24px 4px;
-  margin-left: 31px;
-  margin-right: 31px;
   text-align: center;
 }
-.fri-day {
-  padding: 24px 4px;
-  color: #9e77ed;
+
+.col-forecast {
+  width: 128px;
+  border-width: 2px;
   background-color: #f4ebff;
+  padding: 24px;
   border-radius: 100px;
-  display: inline;
-  margin-left: 31px;
-  margin-right: 0px;
-  text-align: center;
+  display: inline-block;
 }
 .days {
   font-size: 20px;
