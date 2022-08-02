@@ -1,3 +1,37 @@
+@media (max-width: 768px) {
+  .container {
+    text-align: center;
+  }
+  .container.cityweather {
+    padding-top: 24px;
+    padding-left: 0px;
+  }
+  .date {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  a#celsiuse-link {
+    display: none;
+  }
+  .divider {
+    display: none;
+  }
+  a#fahrenheit-link {
+    display: none;
+  }
+
+  div.tempUnits {
+    display: block;
+    align-items: center;
+  }
+  h1 {
+    width: 100%;
+  }
+  .col-forecast {
+    width: 112px !important;
+  }
+}
 body {
   background: #faf7ff;
 }
@@ -5,7 +39,6 @@ body {
   border: 1px solid #c7b4ee;
   border-radius: 32px;
   margin: 64px auto;
-  max-width: 960px;
   padding: 24px;
 }
 .container.search {
@@ -57,20 +90,24 @@ button:focus {
 div.tempUnits {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 .cityweather {
   display: flex;
   color: rgba(105, 65, 198, 100%);
   background-color: rgba(214, 187, 251, 100%);
-  margin: 24px 0px;
   padding: 24px 0px 24px 24px;
   border-radius: 32px;
-  max-height: 232px;
+  max-height: 100%;
+  align-items: center;
+}
+col.temp {
+  align-items: center;
 }
 
 .status {
   text-align: center;
-  display: block;
+  display: flex;
   color: rgba(105, 65, 198, 100%);
   padding: 24px;
   border-radius: 100px;
@@ -90,8 +127,8 @@ h4 {
 .date {
   font-size: 18px;
   font-weight: 400;
-  margin-left: 28px;
-  width: 144px;
+  margin-left: 0px;
+  width: 100%;
 }
 
 .Precipitation,
@@ -105,7 +142,6 @@ h4 {
 h1 {
   font-size: 96px;
   font-weight: 900px;
-  padding: 24px;
 }
 
 .weather-status {
@@ -129,7 +165,7 @@ h1 {
 .row.weather-forecast {
   justify-content: space-between;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   color: #9e77ed;
   text-align: center;
   margin: 0px;

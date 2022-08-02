@@ -50,8 +50,9 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-       <div class="col-forecast" style="border: 2px solid rgb(255, 255, 255)">
-            <div>
+       
+        <div class="col-forecast" style="border: 2px solid rgb(255, 255, 255)">
+            <div >
                  <img  
           src="image/${forecastDay.weather[0].icon}.svg"
           alt="less clouds"
@@ -70,6 +71,7 @@ function displayForecast(response) {
     <span class="low-temp">${Math.round(forecastDay.temp.min)}°</span>
 </div>
 </div>
+
   `;
     }
   });
